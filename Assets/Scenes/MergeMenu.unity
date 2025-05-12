@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 18954099}
   - component: {fileID: 18954102}
   - component: {fileID: 18954101}
+  - component: {fileID: 18954103}
   - component: {fileID: 18954100}
   m_Layer: 5
   m_Name: Ability
@@ -255,6 +256,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18954098}
   m_CullTransparentMesh: 1
+--- !u!114 &18954103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18954098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 1, g: 0.42745098, b: 0, a: 1}
+  hoverColor: {r: 0.6792453, g: 0.2903441, b: 0, a: 1}
+  clickColor: {r: 0.7735849, g: 0.33066964, b: 0, a: 1}
 --- !u!1 &86980774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1276,7 @@ GameObject:
   - component: {fileID: 264286383}
   - component: {fileID: 264286382}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: WallCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1299,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 757.2, y: 119}
+  m_SizeDelta: {x: 800, y: 119}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &264286382
 MonoBehaviour:
@@ -1305,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NowWall/MaxWall
+  m_text: CurrentWall/MaxWall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1799,6 +1815,7 @@ GameObject:
   - component: {fileID: 350726693}
   - component: {fileID: 350726696}
   - component: {fileID: 350726695}
+  - component: {fileID: 350726697}
   - component: {fileID: 350726694}
   m_Layer: 5
   m_Name: Setting
@@ -1884,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1909,6 +1926,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350726692}
   m_CullTransparentMesh: 1
+--- !u!114 &350726697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350726692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+  hoverColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  clickColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
 --- !u!1 &367681175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &474461606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2997,6 +3029,7 @@ GameObject:
   - component: {fileID: 806850044}
   - component: {fileID: 806850047}
   - component: {fileID: 806850046}
+  - component: {fileID: 806850048}
   - component: {fileID: 806850045}
   m_Layer: 5
   m_Name: Create wall
@@ -3082,7 +3115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3107,6 +3140,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806850043}
   m_CullTransparentMesh: 1
+--- !u!114 &806850048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806850043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  hoverColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  clickColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
 --- !u!1 &822338120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,7 +3167,7 @@ GameObject:
   - component: {fileID: 822338123}
   - component: {fileID: 822338122}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3981,7 +4029,7 @@ GameObject:
   - component: {fileID: 1038070509}
   - component: {fileID: 1038070508}
   m_Layer: 5
-  m_Name: Upgrade Button 2
+  m_Name: RewardButton 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4004,7 +4052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: 50}
+  m_AnchoredPosition: {x: 672, y: 50}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038070508
@@ -4238,7 +4286,7 @@ GameObject:
   - component: {fileID: 1194147856}
   - component: {fileID: 1194147855}
   m_Layer: 5
-  m_Name: Upgrade Button 3
+  m_Name: RewardButton 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4261,7 +4309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: -170}
+  m_AnchoredPosition: {x: 672, y: -170}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194147855
@@ -4616,7 +4664,7 @@ GameObject:
   - component: {fileID: 1322801138}
   - component: {fileID: 1322801137}
   m_Layer: 5
-  m_Name: Upgrade Button
+  m_Name: RewardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4639,7 +4687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: 270}
+  m_AnchoredPosition: {x: 672, y: 270}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322801137
@@ -4870,6 +4918,7 @@ GameObject:
   - component: {fileID: 1374697902}
   - component: {fileID: 1374697901}
   - component: {fileID: 1374697900}
+  - component: {fileID: 1374697903}
   m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
@@ -4991,6 +5040,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374697898}
   m_CullTransparentMesh: 1
+--- !u!114 &1374697903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374697898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.87058824, g: 0.03137255, b: 1, a: 1}
+  hoverColor: {r: 0.582016, g: 0, b: 0.6037736, a: 1}
+  clickColor: {r: 0.61458486, g: 0, b: 0.7075472, a: 1}
 --- !u!1 &1389153014
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,6 +5066,7 @@ GameObject:
   - component: {fileID: 1389153015}
   - component: {fileID: 1389153018}
   - component: {fileID: 1389153017}
+  - component: {fileID: 1389153019}
   - component: {fileID: 1389153016}
   m_Layer: 5
   m_Name: Mission
@@ -5124,6 +5189,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389153014}
   m_CullTransparentMesh: 1
+--- !u!114 &1389153019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389153014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 0.13333334, g: 0, b: 1, a: 1}
+  hoverColor: {r: 0.08930809, g: 0, b: 0.6698113, a: 1}
+  clickColor: {r: 0.10314456, g: 0, b: 0.7735849, a: 1}
 --- !u!1 &1399002577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6841,7 +6921,7 @@ GameObject:
   - component: {fileID: 1910566495}
   - component: {fileID: 1910566494}
   m_Layer: 5
-  m_Name: Upgrade Button 4
+  m_Name: RewardButton 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6864,7 +6944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: -390}
+  m_AnchoredPosition: {x: 672, y: -390}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910566494
@@ -7483,6 +7563,7 @@ GameObject:
   - component: {fileID: 2085172619}
   - component: {fileID: 2085172618}
   - component: {fileID: 2085172617}
+  - component: {fileID: 2085172620}
   m_Layer: 5
   m_Name: Defence Start
   m_TagString: Untagged
@@ -7604,6 +7685,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085172615}
   m_CullTransparentMesh: 1
+--- !u!114 &2085172620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085172615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef26739e03ee8134e99c2eb9250cb8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.6698113, g: 0, b: 0, a: 1}
+  clickColor: {r: 0.6698113, g: 0, b: 0, a: 1}
 --- !u!1 &2112277798
 GameObject:
   m_ObjectHideFlags: 0
