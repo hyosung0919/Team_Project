@@ -6,27 +6,27 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //ÇÁ¸®ÆÕ ¸®¼Ò½º
-    public GameObject WallPrefab;                      //º® ÇÁ¸®ÆÕ
-    public Sprite[] WallImages;                          //º® ÀÌ¹ÌÁö ¹è¿­
-    //¿µ¿ª Transform
-    public Transform deckArea;                          //µ¦ ¿µ¿ª
-    public Transform handArea;                          //¼ÕÆÐ¿µ¿ª
-    //UI ¿ä¼Ò
-    public Button drawButton;                           //µå·Î¿ì ¹öÆ°
-    public TextMeshProUGUI deckCountText;               //³²Àº µ¦ º® ¼ö Ç¥½Ã ÅØ½ºÆ®
-    //¼³Á¤ °ª
-    public float wallSpacing = 2.0f;                    //º® °£°Ý
-    public int maxHandSize = 6;                         //ÃÖ´ë ¼ÕÆÐ Å©±â
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½
+    public GameObject WallPrefab;                      //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public Sprite[] WallImages;                          //ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½è¿­
+    //ï¿½ï¿½ï¿½ï¿½ Transform
+    public Transform deckArea;                          //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public Transform handArea;                          //ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½
+    //UI ï¿½ï¿½ï¿½
+    public Button drawButton;                           //ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Æ°
+    public TextMeshProUGUI deckCountText;               //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ø½ï¿½Æ®
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public float wallSpacing = 2.0f;                    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public int maxHandSize = 6;                         //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
     
-    //¹è¿­ ¼±¾ð
-    public GameObject[] deckWalls;                      //µ¦ º® ¹è¿­
-    public int deckCount;                               //ÇöÀç µ¦¿¡ ÀÖ´Â º®ÀÇ ¼ö
+    //ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
+    public GameObject[] deckWalls;                      //ï¿½ï¿½ ï¿½ï¿½ ï¿½è¿­
+    public int deckCount;                               //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    public GameObject[] handWalls;                      //¼ÕÆÐ ¹è¿­
-    public int handCount;                               //ÇöÀç ¼ÕÆÐ¿¡ ÀÖ´Â º®ÀÇ ¼ö
+    public GameObject[] handWalls;                      //ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
+    public int handCount;                               //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-    //¹Ì¸® Á¤ÀÇµÈ º® ¸ñ·Ï (¼ýÀÚ¸¸)
+    //ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ú¸ï¿½)
     public int[] prefedinedDeck = new int[]
     {
         1,1,1,1,1,1,1,1,
@@ -37,65 +37,65 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //¹è¿­ ÃÊ±âÈ­
+        //ï¿½è¿­ ï¿½Ê±ï¿½È­
         deckWalls = new GameObject[prefedinedDeck.Length];
         handWalls = new GameObject[maxHandSize];
 
-        //µ¦ ÃÊ±âÈ­ ¹× ¼ÅÇÃ
+        //ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         InitializeDeck();
         ShuffleDeck();
 
-        if(drawButton != null)              //¹öÆ° À¯¾ÆÀÌ Ã¼Å©
+        if(drawButton != null)              //ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         {
-            drawButton.onClick.AddListener(OnDrawButtonClicked);        //ÀÖÀ» °æ¿ì ¹öÆ°À» ´©¸£¸éOnDrawButtonClicked ÇÔ¼ö µ¿ÀÛ
+            drawButton.onClick.AddListener(OnDrawButtonClicked);        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OnDrawButtonClicked ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
-    void ShuffleDeck()                                  //Fisher-Yates ¼ÅÇÃ ¾Ë°í¸®Áò
+    void ShuffleDeck()                                  //Fisher-Yates ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ï¿½
     {
         for(int i = 0; i < deckCount - 1; i++)
         {
             int j = Random.Range(i, deckCount);
-            //¹è¿­ ³» Ä«µå ±³È¯
+            //ï¿½è¿­ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯
             GameObject temp = deckWalls[i];
             deckWalls[i] = deckWalls[j];
             deckWalls[j] = temp;
         }
     }
-    //µ¦ ÃÊ±âÈ­ - Á¤ÇØÁø º® »ý¼º
+    //ï¿½ï¿½ ï¿½Ê±ï¿½È­ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     void InitializeDeck()
     {
         deckCount = prefedinedDeck.Length;
 
         for (int i = 0; i <prefedinedDeck.Length; i++)
         {
-            int value = prefedinedDeck[i];                  //º® °ª °¡Á®¿À±â
-            //ÀÌ¹ÌÁö ÀÎµ¦½º °è»ê(°ª¿¡ µû¶ó ´Ù¸¥ ÀÌ¹ÌÁö »ç¿ë)
-            int imageIndex = value - 1;                     //°ªÀÌ 1ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î ÀÎµ¦½º 0ºÎÅÍ
+            int value = prefedinedDeck[i];                  //ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+            int imageIndex = value - 1;                     //ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½Îµï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½
             if(imageIndex >= WallImages.Length || imageIndex < 0)
             {
-                imageIndex = 0;                     //ÀÌ¹ÌÁö°¡ ºÎÁ·ÇÏ°Å³ª ÀÎµ¦½º°¡ Àß¸øµÈ °æ¿ì Ã¹ ¹øÂ° ÀÌ¹ÌÁö »ç¿ë
+                imageIndex = 0;                     //ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½Â° ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             }
-            //º® ¿ÀºêÁ§Æ® »ý¼º (µ¦ À§Ä¡)
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ ï¿½ï¿½Ä¡)
             GameObject newWallObj = Instantiate(WallPrefab, deckArea.position, Quaternion.identity);
             newWallObj.transform.SetParent(deckArea);
-            newWallObj.SetActive(false);            //Ã³À½¿¡´Â ºñÈ°¼ºÈ­
-            //º® ÄÄÆ÷³ÍÆ® ÃÊ±âÈ­
+            newWallObj.SetActive(false);            //Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
             Wall wallComp = newWallObj.GetComponent<Wall>();
             if(wallComp != null)
             {
                 wallComp.InitWall(value, WallImages[imageIndex]);
             }
-            deckWalls[i] = newWallObj;              //¹è¿­¿¡ ÀúÀå
+            deckWalls[i] = newWallObj;              //ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 
-    //¼ÕÆÐ Á¤·Ä ÇÔ¼ö
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void ArrangeHand()
     {
-        if (handCount == 0)                  //¼Õ¿¡ º®ÀÌ ¾øÀ¸¸é Á¤·ÄÀÌ ÇÊ¿ä ¾ø±â ¶§¹®¿¡ return
+        if (handCount == 0)                  //ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ return
             return;
 
-        float StartX = -(handCount - 1) * wallSpacing / 2;          //Ä«µå Áß¾Ó Á¤·ÄÀ» À§ÇÑ ¿ÀÇÁ¼Â °è»ê
+        float StartX = -(handCount - 1) * wallSpacing / 2;          //Ä«ï¿½ï¿½ ï¿½ß¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
         for (int i = 0; i < handCount; i++)
         {
@@ -107,36 +107,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnDrawButtonClicked()          //µå·Î¿ì ¹öÆ° Å¬¸¯½Ã µ¦¿¡¼­ º® »Ì±â
+    void OnDrawButtonClicked()          //ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì±ï¿½
     {
         DrawWallToHand();
     }
-    public void DrawWallToHand()        //µ¦¿¡¼­ º®À» »Ì¾Æ ¼ÕÆÐ·Î ÀÌµ¿
+    public void DrawWallToHand()        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ð·ï¿½ ï¿½Ìµï¿½
     {
-        if (handCount >= maxHandSize)   //¼ÕÆÐ°¡ °¡µæ Ã¡´ÂÁö È®ÀÎ
+        if (handCount >= maxHandSize)   //ï¿½ï¿½ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¡ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         {
-            Debug.Log("¼ÕÆÐ°¡ °¡µæ Ã¡½À´Ï´Ù!");
+            Debug.Log("ï¿½ï¿½ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¡ï¿½ï¿½ï¿½Ï´ï¿½!");
             return;
         }
-        if (deckCount <= 0)             //µ¦¿¡ º®ÀÌ ³²¾ÆÀÖ´ÂÁö È®ÀÎ
+        if (deckCount <= 0)             //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         {
-            Debug.Log("µ¦¿¡ ´õ ÀÌ»ó Ä«µå°¡ ¾ø½À´Ï´Ù.");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
-        GameObject drawnWall = deckWalls[0];        //µ¦¿¡¼­ ¸Ç À§¿¡ º®À» °¡Á®¿À±â
+        GameObject drawnWall = deckWalls[0];        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        for(int i = 0; i < deckCount - 1; i++)      //µ¦ ¹è¿­ Á¤¸® (¾ÕÀ¸·Î ÇÑÄ­¾¿ ´ç±â±â)
+        for(int i = 0; i < deckCount - 1; i++)      //ï¿½ï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         {
             deckWalls[i] = deckWalls[i + 1];
         }
         deckCount--;
 
-        drawnWall.SetActive(true);                  //º® È°¼ºÈ­
-        handWalls[handCount] = drawnWall;           //¼ÕÆÐ¿¡ º® Ãß°¡
+        drawnWall.SetActive(true);                  //ï¿½ï¿½ È°ï¿½ï¿½È­
+        handWalls[handCount] = drawnWall;           //ï¿½ï¿½ï¿½Ð¿ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½
         handCount++;
 
-        drawnWall.transform.SetParent(handArea);    //º®ÀÇ ºÎ¸ð¸¦ ¼ÕÆÐ¸¦ ¿µ¿ªÀ¸·Î ¼³Á¤
+        drawnWall.transform.SetParent(handArea);    //ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        ArrangeHand();                              //¼ÕÆÐ Á¤·É
+        ArrangeHand();                              //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }

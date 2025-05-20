@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragDrop : MonoBehaviour                   //Ä«µå µå·¡±× ¾Ø µå·Ó Ã³¸®¸¦ À§ÇÑ Å¬·¡½º
+public class DragDrop : MonoBehaviour                   //Ä«ï¿½ï¿½ ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 {
-    public bool isDragging = false;                     //µå·¡±× ÁßÀÎÁö ÆÇº°ÇÏ´Â Bool °ª
-    public Vector3 startPosition;                       //µå·¡±× ½ÃÀÛ À§Ä¡
-    public Transform startParent;                       //µå·¡±× ½ÃÀÛ ½Ã ÀÖ´ø ¿µ¿ª(Area)
+    public bool isDragging = false;                     //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½ï¿½Ï´ï¿½ Bool ï¿½ï¿½
+    public Vector3 startPosition;                       //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Transform startParent;                       //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½(Area)
 
-    private GameManager gameManager;                    //°ÔÀÓ¸Å´ÏÀú¸¦ ÂüÁ¶ ÇÑ´Ù.
+    private GameManager gameManager;                    //ï¿½ï¿½ï¿½Ó¸Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
     void Start()
     {
-        startPosition = transform.position;             //½ÃÀÛ À§Ä¡¿Í ºÎ¸ð ÀúÀå
+        startPosition = transform.position;             //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         startParent = transform.parent;
 
-        gameManager = FindObjectOfType<GameManager>();      //°ÔÀÓ ¸Å´ÏÀú ÂüÁ¶
+        gameManager = FindObjectOfType<GameManager>();      //ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     void Update()
     {
-        if (isDragging)          //µå·¡±× ÁßÀÌ¸é ¸¶¿ì½º À§Ä¡·Î Ä«µå ÀÌµ¿
+        if (isDragging)          //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Ä¡ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½Ìµï¿½
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
@@ -27,25 +27,25 @@ public class DragDrop : MonoBehaviour                   //Ä«µå µå·¡±× ¾Ø µå·Ó Ã³
         }
     }
 
-    void OnMouseDown()          //¸¶¿ì½º Å¬¸¯ ½Ã µå·¡±× ½ÃÀÛ
+    void OnMouseDown()          //ï¿½ï¿½ï¿½ì½º Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         isDragging = true;
 
-        startPosition = transform.position;             //½ÃÀÛ À§Ä¡¿Í ºÎ¸ð ÀúÀå
+        startPosition = transform.position;             //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         startParent = transform.parent;
 
-        GetComponent<SpriteRenderer>().sortingOrder = 10;           //µå·¡±× ÁßÀÎ Ä«µå°¡ ´Ù¸¥ Ä«µåº¸´Ù ¾Õ¿¡ º¸ÀÌµµ·Ï ÇÑ´Ù.
+        GetComponent<SpriteRenderer>().sortingOrder = 10;           //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å°¡ ï¿½Ù¸ï¿½ Ä«ï¿½åº¸ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
     }
 
-    void OnMouseUp()            //¸¶¿ì½º ¹öÆ° ³õÀ» ¶§
+    void OnMouseUp()            //ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
         isDragging = false;
-        GetComponent<SpriteRenderer>().sortingOrder = 1;            //µå·¡±× ÁßÀÎ Ä«µå°¡ ´Ù¸¥ Ä«µåº¸´Ù ¾Õ¿¡ º¸ÀÌµµ·Ï ÇÑ´Ù.
+        GetComponent<SpriteRenderer>().sortingOrder = 1;            //ï¿½å·¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å°¡ ï¿½Ù¸ï¿½ Ä«ï¿½åº¸ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 
         ReturnToOriginalPosition();
     }
 
-    void ReturnToOriginalPosition()             //¿ø·¡ À§Ä¡·Î µ¹¾Æ°¡´Â ÇÔ¼ö
+    void ReturnToOriginalPosition()             //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         transform.position = startPosition;
         transform.SetParent(startParent);
@@ -59,19 +59,19 @@ public class DragDrop : MonoBehaviour                   //Ä«µå µå·¡±× ¾Ø µå·Ó Ã³
         }
     }
 
-    bool IsOverArea(Transform area)                 //Ä«µå°¡ Æ¯Á¤ ¿µ¿ª À§¿¡ ÀÖ´ÂÁö È®ÀÎ
+    bool IsOverArea(Transform area)                 //Ä«ï¿½å°¡ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     {
         if (area == null)
         {
             return false;
         }
 
-        //¿µ¿ªÀÇ ÄÝ¶óÀÌ´õ¸¦ °¡Á®¿È
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Collider2D areaCollider = area.GetComponent<Collider2D>();
         if (areaCollider == null)
             return false;
 
-        //Ä«µå°¡ ¿µ¿ª ¾È¿¡ ÀÖ´ÂÁö È®ÀÎ
+        //Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         return areaCollider.bounds.Contains(transform.position);
     }
 }
