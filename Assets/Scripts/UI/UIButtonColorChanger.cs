@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//버튼 위에 마우스가 호버 상태이거나 클릭시 색을 변하게 하는 코드
+//버튼 ?�에 마우?��? ?�버 ?�태?�거???�릭???�을 변?�게 ?�는 코드
 public class UIButtonColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     public Color normalColor = Color.white;

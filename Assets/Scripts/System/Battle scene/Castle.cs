@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour
 {
-    [SerializeField] public float maxCastleHp;
-    [SerializeField] public float castleHp;
+    [SerializeField] public int castleHp = 1; //성 최대 체력
 
+
+    private void Awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +21,6 @@ public class Castle : MonoBehaviour
     void Update()
     {
         
-    }
-    public void DamageCastle()
-    {
-
     }
 
     public void DestroyedCastle()
