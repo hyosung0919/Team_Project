@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
+public enum BulletType { Stone, Arrow , Dialysis, Cannon , Missile }
+
 public class projectile : MonoBehaviour
 {
+    [SerializeField]
+    private List<BulletData> bulletdatas; //스크립터블 오브잭트 받아옴
+    [SerializeField]
+    private GameObject bulletprefab;
+
+
+
     public Animator animator;  //투사체 오브젝트 애니메이션
     private AudioSource _source; //투사체 오디오
     private AudioClip _clip; //히트사운드
@@ -48,5 +57,12 @@ public class projectile : MonoBehaviour
             }
         }
 
+    }
+    public BulletData SpwawnBullet(BulletType type)
+    {
+        var newbullet = Instantiate(bulletprefab).GetComponent<BulletData>();
+        newbullet.bulletdata = bulletdatas[(int)type];
+        newbullet.name = newbullet.bulletdata.ToString();
+        return newbullet;   
     }
 }

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet
+public class Bullet : MonoBehaviour
 {
-    //투사체 데이터값
-
+    public BulletData bulletData;
 }
