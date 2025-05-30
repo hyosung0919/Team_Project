@@ -9,8 +9,14 @@ public class projectile : MonoBehaviour
 {
     [SerializeField]
     private List<BulletData> bulletdatas; //스크립터블 오브잭트 받아옴
+
     [SerializeField]
     private GameObject bulletprefab;
+    public float Speed = 1.0f; //스피드
+    public int bulletcount = 0; //카운트수
+    public bool isbullet = false; //상태체크
+    public float fireInterval = 0.2f; // 발사 간격
+    public BulletType bulletTypeToUse = BulletType.Stone;
 
 
 
@@ -28,7 +34,11 @@ public class projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isbullet)
+        {
+            StartCoroutine(FireBullets());
+        }
+
     }
 
     // Update is called once per frame
@@ -58,11 +68,19 @@ public class projectile : MonoBehaviour
         }
 
     }
+    IEnumerator FireBullets()
+    {
+        for (int i = 0; i < bulletcount; i++)
+        {
+            SpwawnBullet(bulletTypeToUse); // bulletTypeToUse는 enum 값
+            yield return new WaitForSeconds(fireInterval);
+        }
+    }
     public BulletData SpwawnBullet(BulletType type)
     {
         var newbullet = Instantiate(bulletprefab).GetComponent<BulletData>();
         newbullet.bulletdata = bulletdatas[(int)type];
         newbullet.name = newbullet.bulletdata.ToString();
-        return newbullet;   
+        return newbullet;
     }
 }
