@@ -355,6 +355,8 @@ GameObject:
   - component: {fileID: 1162605593}
   - component: {fileID: 1162605592}
   - component: {fileID: 1162605594}
+  - component: {fileID: 1162605595}
+  - component: {fileID: 1162605596}
   m_Layer: 7
   m_Name: wall_Test
   m_TagString: Wall
@@ -458,7 +460,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -474,6 +476,46 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1162605595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162605591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106c38d287e125b4c8c0400308e83495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+--- !u!50 &1162605596
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162605591}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1796586830
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,11 +613,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4e80937fe66014d89b71c6dc3b6e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletdatas: []
+  bulletdatas:
+  - {fileID: 11400000, guid: 71986f509a36f8443b75ad97cdd275ed, type: 2}
+  - {fileID: 11400000, guid: 073123925ec93b64991f06748c39c717, type: 2}
+  - {fileID: 11400000, guid: 1b29589fd1dd4224eb271076b01a1b1c, type: 2}
+  - {fileID: 11400000, guid: 6e9dc45292b879d4faba65637bc0d3e7, type: 2}
+  - {fileID: 11400000, guid: 7696ec426c777144884aa8fa181e3279, type: 2}
   bulletprefab: {fileID: 846903063}
   Speed: 1
   bulletcount: 10
-  isbullet: 0
+  isbullet: 1
   fireInterval: 0.2
   bulletTypeToUse: 0
   animator: {fileID: 0}
@@ -596,6 +643,7 @@ GameObject:
   - component: {fileID: 2140010615}
   - component: {fileID: 2140010614}
   - component: {fileID: 2140010616}
+  - component: {fileID: 2140010617}
   m_Layer: 8
   m_Name: Castle_Test
   m_TagString: Castle
@@ -715,6 +763,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2140010617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140010613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8509a08e96e2da3458429252d8f880bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castleHp: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

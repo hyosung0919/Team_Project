@@ -5,16 +5,15 @@ using UnityEngine;
 public class wall : MonoBehaviour
 {
     [SerializeField]
-    public float wallHp =50.0f;
-    [SerializeField]
-    public int wallLevel = 1;
+    private int maxHp = 100;
+    private int currentHp;
 
-    //¸ÓÁö¿¡¼­ µ¥ÀÌÅÍ¹Ş¾Æ¿À°í ±×°ªÀ¸·Î º® »ı¼º'
+    // Í¹Ş¾Æ¿ï¿½ï¿½ï¿?ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½'
 
     // Start is called before the first frame update
     void Start()
     {
-
+        currentHp = maxHp;
     }
 
     // Update is called once per frame
@@ -23,8 +22,15 @@ public class wall : MonoBehaviour
 
     }
 
-    public void DestroyedWall()
+    public void TakeDamage(int damage)
     {
-        Destroy(gameObject);
+        currentHp -= damage;
+        Debug.Log($"ë²½ì´ {damage}???°ë?ì§€ë¥?ë°›ì•˜?µë‹ˆ?? ?¨ì? HP: {currentHp}");
+
+        if (currentHp <= 0)
+        {
+            Debug.Log("ë²½ì´ ?Œê´´?˜ì—ˆ?µë‹ˆ??");
+            Destroy(gameObject);
+        }
     }
 }

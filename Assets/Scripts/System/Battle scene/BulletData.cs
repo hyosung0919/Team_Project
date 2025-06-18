@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Bullet Data", menuName = "Scripttable Object/Bullet Data", order = int.MaxValue)]
 public class BulletData : ScriptableObject
 {
-    //Åõ»çÃ¼ µ¥ÀÌÅÍ°ª ¿À¹ö¶óÀÌµå ¹ÞÀ»²¨ÀÓ
+    //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
     private string _bulletname; 
     public string Bulletname { get { return _bulletname; } }
@@ -18,5 +18,5 @@ public class BulletData : ScriptableObject
     private int _bulletspeed;
     public int Bulletspeed { get { return _bulletspeed; } }
 
-    public object bulletdata { get; internal set; }
+    public BulletData bulletdata { get; set; }
 }

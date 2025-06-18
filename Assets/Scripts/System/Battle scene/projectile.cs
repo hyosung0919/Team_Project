@@ -8,27 +8,27 @@ public enum BulletType { Stone, Arrow , Dialysis, Cannon , Missile }
 public class projectile : MonoBehaviour
 {
     [SerializeField]
-    private List<BulletData> bulletdatas; //½ºÅ©¸³ÅÍºí ¿ÀºêÀèÆ® ¹Ş¾Æ¿È
+    private List<BulletData> bulletdatas; //ï¿½ï¿½Å©ï¿½ï¿½ï¿½Íºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ş¾Æ¿ï¿½
 
     [SerializeField]
     private GameObject bulletprefab;
-    public float Speed = 1.0f; //½ºÇÇµå
-    public int bulletcount = 0; //Ä«¿îÆ®¼ö
-    public bool isbullet = false; //»óÅÂÃ¼Å©
-    public float fireInterval = 0.2f; // ¹ß»ç °£°İ
+    public float Speed = 1.0f; //ï¿½ï¿½ï¿½Çµï¿½
+    public int bulletcount = 0; //Ä«ï¿½ï¿½Æ®ï¿½ï¿½
+    public bool isbullet = false; //ï¿½ï¿½ï¿½ï¿½Ã¼Å©
+    public float fireInterval = 0.2f; // ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½
     public BulletType bulletTypeToUse = BulletType.Stone;
 
 
 
-    public Animator animator;  //Åõ»çÃ¼ ¿ÀºêÁ§Æ® ¾Ö´Ï¸ŞÀÌ¼Ç
-    private AudioSource _source; //Åõ»çÃ¼ ¿Àµğ¿À
-    private AudioClip _clip; //È÷Æ®»ç¿îµå
+    public Animator animator;  //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+    private AudioSource _source; //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿?
+    private AudioClip _clip; //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½
 
-    public float rayDistance = 20; //Åõ»çÃ¼ ³¯¶ó°¥ °Å¸®
+    public float rayDistance = 20; //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
     public LayerMask targetLayer;
 
-    public bool isWallHit = false; //º® Ãæµ¹ ÆÇÁ¤ 
-    public bool iscastlehit = false; //¼º Ãæµ¹ ÆÇÁ¤
+    public bool isWallHit = false; //ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ 
+    public bool iscastlehit = false; //ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
 
    
     // Start is called before the first frame update
@@ -44,26 +44,25 @@ public class projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 dir = Vector2.left; //¿ŞÂÊÀ¸·Î ·¹ÀÌ»ı¼º
+        Vector2 dir = Vector2.left; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½
 
         RaycastHit2D[] hit2D = Physics2D.RaycastAll(transform.position, dir, rayDistance, targetLayer);
 
 
-        Debug.DrawRay(transform.position, dir * rayDistance, Color.red); //·¹ÀÌ µğ¹ö±×¿ë ·¹ÀÌ º¸ÀÌ°ÔÇÏ´Â ÄÚµå
+        Debug.DrawRay(transform.position, dir * rayDistance, Color.red); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½×¿ï¿?ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½
 
         foreach (RaycastHit2D hit in hit2D)
         {
-            Debug.Log("Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®: " + hit.collider.name);
+            Debug.Log("ì¶©ëŒ???ï¿½ë¸Œ?ï¿½íŠ¸: " + hit.collider.name);
             if (hit.collider.CompareTag("Wall"))
             {
-                Debug.Log("º® °¨Áö");
-                // Destroy(hit.collider.gameObject);
-                break; // º®ÀÌ ÀÖÀ¸¸é Å½»ö Áß´Ü
+                Debug.Log("ï¿?ì¶©ëŒ");
+                break; //   Å½ ß´ï¿?
             }
 
             if (hit.collider.CompareTag("Castle"))
             {
-                Debug.Log("¼º °¨Áö");
+                Debug.Log("??ì¶©ëŒ");
             }
         }
 
@@ -72,15 +71,23 @@ public class projectile : MonoBehaviour
     {
         for (int i = 0; i < bulletcount; i++)
         {
-            SpwawnBullet(bulletTypeToUse); // bulletTypeToUse´Â enum °ª
+            SpwawnBullet(bulletTypeToUse);
             yield return new WaitForSeconds(fireInterval);
         }
     }
-    public BulletData SpwawnBullet(BulletType type)
+    public void SpwawnBullet(BulletType type)
     {
-        var newbullet = Instantiate(bulletprefab).GetComponent<BulletData>();
-        newbullet.bulletdata = bulletdatas[(int)type];
-        newbullet.name = newbullet.bulletdata.ToString();
-        return newbullet;
+        if (bulletdatas == null || bulletdatas.Count == 0 || (int)type >= bulletdatas.Count)
+        {
+            Debug.LogError("Bullet data is not properly set up!");
+            return;
+        }
+
+        GameObject bulletObj = Instantiate(bulletprefab, transform.position, Quaternion.identity);
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            bullet.bulletData = bulletdatas[(int)type];
+        }
     }
 }
